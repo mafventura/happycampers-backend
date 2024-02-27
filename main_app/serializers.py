@@ -23,6 +23,8 @@ class WeekSerializer(serializers.HyperlinkedModelSerializer):
         fields = '__all__'
         
 class KidSerializer(serializers.HyperlinkedModelSerializer):
+    user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())
+
     class Meta:
         model = Kid
-        fields = '__all__'
+        fields = ['id', 'name', 'dob', 'school', 'allergies', 'emergency_contact', 'leaving_permissions', 'user']
