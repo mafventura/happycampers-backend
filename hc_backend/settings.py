@@ -31,7 +31,11 @@ SECRET_KEY = 'django-insecure-=0lm)lf6tf@rcyny=u37!9u2+dz0as4h)uh*hyu5gep@m-omg0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    'localhost',
+    'happycampers-backend-production.up.railway.app',
+    'happycampers-backend.railway.internal'
+]
 
 
 # Application definition
