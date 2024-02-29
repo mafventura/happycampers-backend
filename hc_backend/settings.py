@@ -73,7 +73,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'hc_backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
-    'http://localhost'
+    'http://localhost',
+    'happycampers-frontend-production.up.railway.app'
 ]
 
 TEMPLATES = [
