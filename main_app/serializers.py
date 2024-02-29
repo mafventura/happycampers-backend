@@ -15,12 +15,15 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 class CampSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Camp
-        fields = '__all__'
+        fields = ['id', 'name', 'start_date', 'end_date']
 
 class WeekSerializer(serializers.HyperlinkedModelSerializer):
+    camp = serializers.PrimaryKeyRelatedField(queryset=Camp.objects.all())
+    kids = serializers.PrimaryKeyRelatedField(many=True, queryset=Kid.objects.all())
+
     class Meta:
         model = Week
-        fields = '__all__'
+        fields = ['id', 'week_number', 'start_date', 'end_date', 'camp', 'kids']
         
 class KidSerializer(serializers.HyperlinkedModelSerializer):
     user = serializers.PrimaryKeyRelatedField(queryset=User.objects.all())

@@ -23,10 +23,10 @@ from main_app import views
 
 router = routers.DefaultRouter()
 
-router.register(r'users', views.UserViewSet)
-router.register(r'groups', views.GroupViewSet)
-router.register(r'camps', views.CampViewSet)
-router.register(r'weeks', views.WeekViewSet)
+router.register(r'users', views.UserViewSet, basename='user')
+router.register(r'groups', views.GroupViewSet, basename='group')
+router.register(r'camps', views.CampViewSet, basename='camp')
+router.register(r'weeks', views.WeekViewSet, basename='week')
 router.register(r'kids', views.KidViewSet, basename='kid')
 
 urlpatterns = [

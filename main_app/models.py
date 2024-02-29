@@ -5,7 +5,6 @@ class Camp(models.Model):
     name = models.CharField(max_length=50)
     start_date = models.DateField()
     end_date = models.DateField()
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
         return f'{self.name}'
@@ -15,6 +14,7 @@ class Week(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     camp = models.ForeignKey(Camp, on_delete=models.CASCADE)
+    kids = models.ManyToManyField('Kid', related_name='weeks', blank=True)
 
     def __str__(self):
         return f'Week {self.week_number} of {self.camp.name}'
