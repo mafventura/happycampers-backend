@@ -33,6 +33,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = [
     'localhost',
+    '127.0.0.1',
     'happycampers-backend-production.up.railway.app',
     'happycampers-backend.railway.internal'
 ]
@@ -74,7 +75,7 @@ ROOT_URLCONF = 'hc_backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost',
-    'happycampers-frontend-production.up.railway.app'
+    'https://happycampers-frontend-production.up.railway.app'
 ]
 
 TEMPLATES = [
