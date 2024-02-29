@@ -101,11 +101,11 @@ WSGI_APPLICATION = 'hc_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['PG_DATABASE'],
-        'USER': os.environ['PG_USER'],
-        'PASSWORD': os.environ['PG_PASSWORD'],
-        'HOST': os.environ['PG_HOST'],
-        'PORT': os.environ['PG_PORT'],
+        'NAME': os.environ['PGDATABASE'],
+        'USER': os.environ['PGUSER'],
+        'PASSWORD': os.environ['PGPASSWORD'],
+        'HOST': os.environ['PGHOST'],
+        'PORT': os.environ['PGPORT'],
     }
 }
 
