@@ -61,6 +61,25 @@ class WeekViewSet(viewsets.ModelViewSet):
         week_id = data.get("week_id")
         Week.objects.get(id=week_id).kids.add(kid_id)
         return Response(status=status.HTTP_200_OK)
+    
+    def post(self, request, *args, **kwargs):
+        data = request.data
+
+        try:
+            camp_id = data.get("camp") 
+            camp_instance = Camp.objects.get(id=camp_id) 
+
+            new_week = Week.objects.create(
+                week_number=data.get("week_number"),
+                start_date=data.get("start_date"),
+                end_date=data.get("end_date"),
+                camp=camp_instance,
+            )
+            return Response(status=status.HTTP_201_CREATED, data=self.get_serializer(new_week).data)
+        except ValidationError as ve:
+            return Response({"error": str(ve)}, status=status.HTTP_400_BAD_REQUEST)
+        except Exception as e:
+            return Response({"error": str(e)}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 class KidViewSet(viewsets.ModelViewSet):
     serializer_class = KidSerializer
