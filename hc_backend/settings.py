@@ -75,6 +75,7 @@ ROOT_URLCONF = 'hc_backend.urls'
 
 CSRF_TRUSTED_ORIGINS = [
     'http://localhost',
+    'https://*.railway.app/',
     'https://happycampers-frontend-production.up.railway.app'
 ]
 
